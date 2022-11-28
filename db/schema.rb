@@ -14,13 +14,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_190953) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "antagonists", force: :cascade do |t|
+  create_table "friendship", force: :cascade do |t|
     t.bigint "user_id", null: false
-    t.bigint "adversary_id"
+    t.bigint "friends_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["adversary_id"], name: "index_antagonists_on_adversary_id"
-    t.index ["user_id"], name: "index_antagonists_on_user_id"
+    t.index ["friends_id"], name: "index_friendship_on_friends_id"
+    t.index ["user_id"], name: "index_friendship_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,6 +31,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_28_190953) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "antagonists", "users"
-  add_foreign_key "antagonists", "users", column: "adversary_id"
+  add_foreign_key "friendship", "users"
+  add_foreign_key "friendship", "users", column: "friends_id"
 end
