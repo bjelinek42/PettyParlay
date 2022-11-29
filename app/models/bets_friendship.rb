@@ -1,0 +1,2 @@
+class BetsFriendship < ApplicationRecord
+end
