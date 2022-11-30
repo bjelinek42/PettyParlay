@@ -8,4 +8,5 @@ Rails.application.routes.draw do
     resources :friendships, only: [:index, :show, :create, :destroy]
   end
 
+  resources :sessions, only: [:create]
 end
