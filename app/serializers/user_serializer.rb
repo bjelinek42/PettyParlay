@@ -1,5 +1,5 @@
 class UserSerializer < ActiveModel::Serializer
-  attributes :id, :user_name, :email, :friends
+  attributes :id, :user_name, :email, :friends, :bets
 
   def friends
     friends = []
@@ -15,5 +15,24 @@ class UserSerializer < ActiveModel::Serializer
 
     return friends
   end
+
+  def bets
+    bet_friendships = []
+    friendships = Friendship.where(user_id: current_user.id)
+    friendships.each do |friendship|
+      bet = BetsFriendship.find_by(friendship_id: friendship.id)
+      bet_friendships << bet
+    end
+    bets = []
+    bet_friendships.each do |bet_friendship|
+      if bet_friendship
+        bet = Bet.find_by(id: bet_friendship.id)
+        bets << bet
+      end
+    end
+    
+
+    return bets
+  end 
 
 end
