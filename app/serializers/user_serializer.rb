@@ -30,8 +30,6 @@ class UserSerializer < ActiveModel::Serializer
         bets << bet
       end
     end
-    
-
     return bets
   end 
 

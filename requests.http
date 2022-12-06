@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzAzNjIyMDF9.CgbXujC0LFa9WICnY8k_L4wt2kRwdYFnv8-RylCrLzk
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzA0NDA1MDZ9.rlKr8xrC0VQiWVbhOLDwzv-zl7jwD0fyrnpD0p09mMU
 
 ### User create
 POST http://localhost:3000/users
@@ -27,3 +27,16 @@ Content-Type: application/json
 
 ### Show user friendships
 GET http://localhost:3000/users/1/friendships
+
+### Create bet
+POST http://localhost:3000/users/1/bets
+Content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "title": "Basketball",
+  "description": "First to 21",
+  "wager_item": "Punch to the thigh",
+  "wager_amount": 4,
+  "friend_id": 2
+}
