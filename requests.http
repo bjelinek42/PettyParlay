@@ -1,4 +1,4 @@
-@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzA0NDA1MDZ9.rlKr8xrC0VQiWVbhOLDwzv-zl7jwD0fyrnpD0p09mMU
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzA1MzU2ODF9.ND8DdL0yyQ3A8xoun02fHzwI_PL0tyDevuvloLZJoNA
 
 ### User create
 POST http://localhost:3000/users
@@ -27,6 +27,16 @@ Content-Type: application/json
 
 ### Show user friendships
 GET http://localhost:3000/users/1/friendships
+
+### Create new friendship
+POST http://localhost:3000/users/1/friendships
+Content-type: application/json
+Authorization: Bearer {{jwt}}
+
+{
+  "friend_id": 4
+}
+
 
 ### Create bet
 POST http://localhost:3000/users/1/bets
